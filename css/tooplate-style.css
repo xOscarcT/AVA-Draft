@@ -131,7 +131,7 @@ p {
 .content { max-width: 370px; }
 .grid {
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
 }
 .grid__item { margin: 10px; }
 .product {
