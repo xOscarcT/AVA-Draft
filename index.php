@@ -1,3 +1,13 @@
+<?php
+
+    session_start();
+
+    if(isset($_SESSION['user'])){
+        header("location: TrainOfTrainers.php");
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -47,13 +57,30 @@
                                                 <h3 class="tm-page-subtitle">Ingrese su usuario y contraseña para continuar</h3>  
                                                 <p></p>      
                                             </div>
-                                            <form class="login-form">
-                                                <p class="login-text">
-                                                </p>
-                                                <input type="user" class="login-username" autofocus="true" required="true" placeholder="Usuario" />
-                                                <input type="password" class="login-password" required="true" placeholder="Contraseña" />
+                                            <form action="php/login_admin_be.php" method="POST" class="login-form" id="formulario">
+                                                <div class="form-group" id="grupo usuario">
+                                                    <div class="formulario__grupo-input">
+                                                        <input type="user" class="login-username" name="Usuario" id ="Usuario" autofocus="true" required="true" placeholder="Usuario" />
+                                                        <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                                                    </div>
+                                                    <p class="formulario__input-error">No puede contener numeros el usuario</p>
+                                                </div>
+
+                                                <div class="form-group" id="grupo password">
+                                                    <div class="formulario__grupo-input">
+                                                        <input type="password" class="login-password" name="password" id="password" required="true" placeholder="Contraseña" />
+                                                        <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                                                    </div>
+                                                    <p class="formulario__input-error">Contraseña maxima de 10 digitos.</p>
+                                                </div>
+
+                                                <div class="formulario__mensaje" id="formulario__mensaje">
+                                                    <p><i class="fas fa-exclamation-circle"></i> <b>Error: </b> Rellene los campos vacios.</p>
+                                                </div>
+
                                                 <input type="submit" name="Login" value="Ingresar" class="login-submit" />
-                                              </form>
+
+                                            </form>
 
                                         </div>
                                     </div>
@@ -73,20 +100,37 @@
                                                         <h2 class="tm-page-title">Bienvenido a la evaluación de Inspector</h2>        
                                                     </div>
                                                 </div>
-                                                <form class="login-form">
-                                                    <p class="login-text">
-                                                    </p>
-                                                    <input type="user" class="login-username" autofocus="true" required="true" placeholder="Usuario" />
-                                                    <input type="password" class="login-password" required="true" placeholder="Contraseña" />
-                                                    <p>Seleccione un curso: </p>
-                                                    <select name="Cursos" id="Course" class="select" required="true">
-                                                        <option value="none"></option>
+                                                <form action="php/login_user_be.php" method="POST" class="login-form" id="formulario">
+                                                    <div class="form-group" id="grupo usuario">
+                                                        <div class="formulario__grupo-input">
+                                                            <input type="user" class="login-username" name="Usuario" id ="Usuario" autofocus="true" required="true" placeholder="Usuario" />
+                                                            <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                                                        </div>
+                                                        <p class="formulario__input-error">No puede contener numeros el usuario</p>
+                                                    </div>
+    
+                                                    <div class="form-group" id="grupo password">
+                                                        <div class="formulario__grupo-input">
+                                                            <input type="password" class="login-password" name="password" id="password" required="true" placeholder="Contraseña" />
+                                                            <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                                                        </div>
+                                                        <p class="formulario__input-error">Contraseña maxima de 10 digitos.</p>
+                                                    </div>
+    
+                                                    <div class="formulario__mensaje" id="formulario__mensaje">
+                                                        <p><i class="fas fa-exclamation-circle"></i> <b>Error: </b> Rellene los campos vacios.</p>
+                                                    </div>
+
+                                                    <p>Area de entrenamiento y certificación: </p>
+                                                    <select name="Course" id="Course" method="POST" class="select" required="true">
                                                         <option value="AFC">AFC</option>
                                                         <option value="BCC">BCC</option>
                                                         <option value="BCC CD PANT">BCC CD PANT</option>
                                                     </select>
+    
                                                     <input type="submit" name="Login" value="Ingresar" class="login-submit" />
-                                                  </form>
+    
+                                                </form>
                                             </div>
                                         </div>
                                     </div>
@@ -106,20 +150,37 @@
                                                         <h2 class="tm-page-title">Bienvenido a la evaluación de Operador</h2>        
                                                     </div>
                                                 </div>
-                                                <form class="login-form">
-                                                    <p class="login-text">
-                                                    </p>
-                                                    <input type="user" class="login-username" autofocus="true" required="true" placeholder="Usuario" />
-                                                    <input type="password" class="login-password" required="true" placeholder="Contraseña" />
-                                                    <p>Seleccione un curso: </p>
+                                                <form action="php/login_user_be.php" method="POST" class="login-form" id="formulario">
+                                                    <div class="form-group" id="grupo usuario">
+                                                        <div class="formulario__grupo-input">
+                                                            <input type="user" class="login-username" name="Usuario" id ="Usuario" autofocus="true" required="true" placeholder="Usuario" />
+                                                            <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                                                        </div>
+                                                        <p class="formulario__input-error">No puede contener numeros el usuario</p>
+                                                    </div>
+    
+                                                    <div class="form-group" id="grupo password">
+                                                        <div class="formulario__grupo-input">
+                                                            <input type="password" class="login-password" name="password" id="password" required="true" placeholder="Contraseña" />
+                                                            <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                                                        </div>
+                                                        <p class="formulario__input-error">Contraseña maxima de 10 digitos.</p>
+                                                    </div>
+    
+                                                    <div class="formulario__mensaje" id="formulario__mensaje">
+                                                        <p><i class="fas fa-exclamation-circle"></i> <b>Error: </b> Rellene los campos vacios.</p>
+                                                    </div>
+
+                                                    <p>Area de entrenamiento y certificación: </p>
                                                     <select name="Cursos" id="Course" class="select" required="true">
-                                                        <option value="none"></option>
                                                         <option value="AFC">AFC</option>
                                                         <option value="BCC">BCC</option>
                                                         <option value="BCC CD PANT">BCC CD PANT</option>
                                                     </select>
+    
                                                     <input type="submit" name="Login" value="Ingresar" class="login-submit" />
-                                                  </form>
+    
+                                                </form>
 
                                             </div>
                                         </div>       
@@ -167,7 +228,6 @@
                                         </div>
                                     </div>
                                 </div>
-                                -->
                             </div> 
                         </div>                       
                     </div>
@@ -182,7 +242,10 @@
     <script src="js/jquery-3.2.1.slim.min.js"></script>         <!-- https://jquery.com/ -->    
     <script src="slick/slick.min.js"></script>                  <!-- http://kenwheeler.github.io/slick/ -->  
     <script src="js/anime.min.js"></script>                     <!-- http://animejs.com/ -->
-    <script src="js/main.js"></script>  
+    <script src="js/main.js"></script>
+    <script src="js/formulario.js"></script>
+    <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>  
+
     <script>      
 
         function setupFooter() {
