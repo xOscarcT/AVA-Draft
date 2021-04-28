@@ -1,12 +1,13 @@
 <?php
 
+    
     session_start();
 
     if(isset($_SESSION['user'])){
         header("location: TrainOfTrainers.php");
     }
-
-?>
+//cambio para git...
+?> 
 
 <!DOCTYPE html>
 <html lang="es">
